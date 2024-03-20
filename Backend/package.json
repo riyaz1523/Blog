@@ -5,6 +5,7 @@
     "main": "server.js",
     "scripts": {
         "start": "nodemon server.js "
+        "build": "npm install"
     },
     "keywords": [],
     "author": "Riyaz Nabiyulla",
