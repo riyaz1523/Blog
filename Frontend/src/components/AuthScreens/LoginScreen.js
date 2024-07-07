@@ -12,9 +12,11 @@ const LoginScreen = () => {
   const loginHandler = async (e) => {
     e.preventDefault();
 
+    const apiUrl = process.env.REACT_APP_API_URL
+
     try {
       const { data } = await axios.post(
-        "/auth/login",
+        `${apiUrl}/auth/login`,
         { email, password }
       );
       localStorage.setItem("authToken", data.token);

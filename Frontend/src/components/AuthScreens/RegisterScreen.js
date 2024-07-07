@@ -9,6 +9,7 @@ const RegisterScreen = () => {
   const [confirmpassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const apiUrl = process.env.REACT_APP_API_URL
 
   const registerHandler = async (e) => {
     e.preventDefault();
@@ -24,7 +25,7 @@ const RegisterScreen = () => {
 
     try {
       const { data } = await axios.post(
-        "/auth/register",
+        `${apiUrl}/auth/register`,
         {
           username,
           email,

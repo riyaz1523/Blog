@@ -10,6 +10,7 @@ const Profile = () => {
     const { config } = useContext(AuthContext)
     const [user, setUser] = useState({});
     const [loading, setLoading] = useState(true)
+    const apiUrl = process.env.REACT_APP_API_URL
 
     const editDate = (createdAt) => {
         const monthNames = ["January", "February", "March", "April", "May", "June",
@@ -29,7 +30,7 @@ const Profile = () => {
             setLoading(true)
 
             try {
-                const { data } = await axios.get("/user/profile", config)
+                const { data } = await axios.get(`${apiUrl}/user/profile`, config)
 
                 setUser(data.data)
 

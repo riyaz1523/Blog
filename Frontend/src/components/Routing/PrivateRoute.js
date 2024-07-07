@@ -10,6 +10,7 @@ const PrivateRoute =( ) => {
     const [error ,setError] =useState("")
     const navigate = useNavigate()
     const {setActiveUser,setConfig } = useContext(AuthContext)
+    const apiUrl = process.env.REACT_APP_API_URL
 
     useEffect(() => {
 
@@ -21,7 +22,7 @@ const PrivateRoute =( ) => {
             },
         };
         try {
-            const { data } = await axios.get("/auth/private", config); 
+            const { data } = await axios.get(`${apiUrl}/auth/private`, config); 
 
             setAuth(true)
             setActiveUser(data.user)

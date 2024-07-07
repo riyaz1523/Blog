@@ -7,6 +7,7 @@ const CommentSidebar = ({ slug, sidebarShowStatus, setSidebarShowStatus, activeU
 
   const [count, setCount] = useState(0)
   const [commentlist, setCommentList] = useState([])
+  const apiUrl = process.env.REACT_APP_API_URL
 
   const sidebarRef = useRef(null);
 
@@ -17,7 +18,7 @@ const CommentSidebar = ({ slug, sidebarShowStatus, setSidebarShowStatus, activeU
 
   const getStoryComments = async () => {
     try {
-      const { data } = await axios.get(`/comment/${slug}/getAllComment`)
+      const { data } = await axios.get(`${apiUrl}/comment/${slug}/getAllComment`)
       setCommentList(data.data)
       setCount(data.count)
     }

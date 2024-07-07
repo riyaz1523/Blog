@@ -17,6 +17,7 @@ const Home = () => {
   const navigate = useNavigate()
   const [page, setPage] = useState(1);
   const [pages, setPages] = useState(1);
+  const apiUrl = process.env.REACT_APP_API_URL
 
 
   useEffect(() => {
@@ -25,7 +26,7 @@ const Home = () => {
       setLoading(true)
       try {
 
-        const { data } = await axios.get(`/story/getAllStories?search=${searchKey || ""}&page=${page}`)
+        const { data } = await axios.get(`${apiUrl}/story/getAllStories?search=${searchKey || ""}&page=${page}`)
 
         if (searchKey) {
           navigate({

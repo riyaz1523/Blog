@@ -15,6 +15,7 @@ const Header = () => {
     const { activeUser } = useContext(AuthContext)
     const [loading, setLoading] = useState(true)
     const navigate = useNavigate()
+    const apiUrl = process.env.REACT_APP_API_URL
 
     useEffect(() => {
 
@@ -65,7 +66,7 @@ const Header = () => {
 
                                     :
 
-                                    <img src={`/userPhotos/${activeUser.photo}`} alt={activeUser.username} />
+                                    <img src={`${apiUrl}/userPhotos/${activeUser.photo}`} alt={activeUser.username} />
 
                                 }
 

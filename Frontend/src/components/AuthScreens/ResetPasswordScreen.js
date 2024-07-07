@@ -23,9 +23,11 @@ const ResetPasswordScreen = () => {
       return setError("Passwords don't match");
     }
 
+    const apiUrl = process.env.REACT_APP_API_URL
+
     try {
       const { data } = await axios.put(
-        `/auth/resetpassword?resetPasswordToken=${token}`,
+        `${apiUrl}/auth/resetpassword?resetPasswordToken=${token}`,
         {
           password,
         }

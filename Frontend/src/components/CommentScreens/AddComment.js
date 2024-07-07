@@ -16,12 +16,13 @@ const AddComment = ({ setSidebarShowStatus, slug, getStoryComments, activeUser, 
     const [success, setSuccess] = useState('')
     const [error, setError] = useState('')
     const [showStatus, setShowStatus] = useState(true)
+    const apiUrl = process.env.REACT_APP_API_UR
 
     const handleSubmit = async (e) => {
 
         e.preventDefault();
         try {
-            await axios.post(`/comment/${slug}/addComment`, { content, star }, {
+            await axios.post(`${apiUrl}/comment/${slug}/addComment`, { content, star }, {
                 headers: {
                     "Content-Type": "application/json",
                     authorization: `Bearer ${localStorage.getItem("authToken")}`,

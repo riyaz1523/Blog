@@ -15,13 +15,14 @@ const ReadListPage = () => {
     const [readList, setReadList] = useState([])
     const [loading, setLoading] = useState(false)
     const { config, activeUser } = useContext(AuthContext)
+    const apiUrl = process.env.REACT_APP_API_URL
 
     useEffect(() => {
         const getUserReadingList = async () => {
             setLoading(true)
 
             try {
-                const { data } = await (await axios.get(`/user/readList`, config)).data
+                const { data } = await (await axios.get(`${apiUrl}/user/readList`, config)).data
                 setReadList(data)
                 setLoading(false)
             }

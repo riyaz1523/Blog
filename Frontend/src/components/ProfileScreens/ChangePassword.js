@@ -13,7 +13,7 @@ const ChangePassword = () => {
     const [success, setSuccess] = useState('')
     const [oldPassword, setOldPassword] = useState('')
     const [newPassword, setNewPassword] = useState('')
-
+    const apiUrl = process.env.REACT_APP_API_URL
     const [confirmPassword, setConfirmPassword] = useState('')
 
     const handleSubmit = async (e) => {
@@ -30,7 +30,7 @@ const ChangePassword = () => {
 
         try {
             const { data } = await axios.put(
-                "/user/changePassword",
+                `${apiUrl}/user/changePassword`,
                 {
                     newPassword,
                     oldPassword
