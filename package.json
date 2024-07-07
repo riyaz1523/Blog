@@ -4,8 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "build": "npm install'"
+    "scripts": {
+    "start": "cd Backend && nodemon server.js",
+    "build": "cd Backend && npm install'"
+  },
   },
   "keywords": [],
   "author": "Riyaz Nabiyulla",
